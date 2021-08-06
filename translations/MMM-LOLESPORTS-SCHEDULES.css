@@ -1,0 +1,30 @@
+.logo {
+  margin-top: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.ordinalText {
+  font-size: 32px;
+}
+
+body {
+  color: white
+}
+
+.teamCode {
+  font-size: 20px;
+  height: 20px;
+  padding-bottom: 4px;
+}
+
+.teamRatio {
+  font-size: 12px;
+  height: 12px;
+  color: #8fa3b0;
+}
+
+.row {
+  height: 36px;
+  vertical-align:top;
+}

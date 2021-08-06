@@ -1,0 +1,23 @@
+{
+  "name": "mmm-lolesports-schedules",
+  "version": "1.0.0",
+  "description": "Displays schedules for League of Legends Esport teams.",
+  "main": "MMM-LOLESPORTS-SCHEDULES.js",
+  "repository": "https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES",
+  "bugs": {
+    "url": "https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/issues"
+  },
+  "homepage": "https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES#readme",
+  "keywords": [
+    "magic mirror",
+    "module",
+    "esports",
+    "league of legends"
+  ],
+  "author": "xadamxk",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "lolesports-js-sdk": "^1.0.0"
+  }
+}
