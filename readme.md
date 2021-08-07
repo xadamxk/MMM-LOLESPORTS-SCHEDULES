@@ -8,7 +8,7 @@ Module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
 <details> 
   <summary>Hide Team Label:</summary>
-  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName.png?raw=true" title="Preview Hide Team Label"  />
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default_live.png?raw=true" title="Preview Hide Team Label"  />
 	<pre><code>
 config: {
 	showTeamLabel: false	
