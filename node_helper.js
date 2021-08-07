@@ -20,7 +20,7 @@ module.exports = NodeHelper.create({
 
       api.getSchedule(
         LolesportsApi.Locale.enUS,
-        { leagueId: payload["leagueIds"] },
+        { leagueId: payload["leagueId"] },
         function (error, data, response) {
           if (error) {
             console.error(error);

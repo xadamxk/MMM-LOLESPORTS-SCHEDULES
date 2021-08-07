@@ -8,8 +8,54 @@
       {% for schedule in schedules %}
         <!-- TODO: Day header if index is 0 -->
         <tr class="row">
+          <td class="sides">
+            <div class="time">
+              {% if config.use24HourTime %}
+                {{ schedule["startHour"] }}:00
+              {% else %}
+                {{ schedule["startHour"] }}
+              {% endif %}
+            </div>
+            <!-- TODO: Logic for config to show/hide -->
+            {% if config.showPeriodLabel %}
+              <div class="period">
+                {{ schedule["startPeriod"] }}
+              </div>
+            {% endif %}
+          </td>
+          {% if config.hideTeamLabel == false %}
+            <td>
+              {% if config.useTeamFullName %}
+                <div class="team1">{{ schedule.match.teams[0].name }}</div>
+              {% else %}
+                <div class="team1">{{ schedule.match.teams[0].code }}</div>
+              {% endif %}
+            </td>
+          {% endif %}
           <td>
-            {{ new Date(schedule["startTime"]) }}
+            <img class="logo" src="{{ schedule.match.teams[0].image }}"/>
+          </td>
+          <td>
+            <div class="vs">VS</div>
+          </td>
+          <td>
+            <img class="logo" src="{{ schedule.match.teams[1].image }}"/>
+          </td>
+          {% if config.hideTeamLabel == false %}
+            <td>
+              {% if config.useTeamFullName %}
+                <div class="team2">{{ schedule.match.teams[1].name }}</div>
+              {% else %}
+                <div class="team2">{{ schedule.match.teams[1].code }}</div>
+              {% endif %}
+            </td>
+          {% endif %}
+          <td class="sides">
+            <div class="leagueInfo">{{ schedule.league.name }}</div>
+            <div class="leagueInfo">
+              BEST OF
+              {{ schedule.match.strategy.count }}
+            </div>
           </td>
         </tr>
       {% endfor %}

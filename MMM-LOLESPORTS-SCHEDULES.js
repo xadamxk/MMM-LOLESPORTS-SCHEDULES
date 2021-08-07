@@ -5,9 +5,14 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     // lang: config.language,
     apiKey: "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z",
     basePath: "https://esports-api.lolesports.com/persisted/gw",
-    leagueIds: ["98767991299243165"], // NA LCS
+    leagueId: ["98767991299243165"], // NA LCS
     hl: "en-US",
-    numberOfFutureGames: 5
+    // Custom
+    numberOfFutureGames: 5,
+    showPeriodLabel: true,
+    use24HourTime: false,
+    useTeamFullName: true,
+    hideTeamLabel: false
   },
 
   // Module properties.
@@ -46,7 +51,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     this.sendSocketNotification("MMM-LOLESPORTS-SCHEDULES-GET-SCHEDULE", {
       apiKey: this.config.apiKey,
       basePath: this.config.basePath,
-      leagueIds: this.config.leagueIds,
+      leagueId: this.config.leagueId,
       hl: this.config.hl
     });
   },
@@ -71,7 +76,23 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
       .filter((event) => {
         return event["startTime"] > new Date().toISOString();
       })
-      .slice(0, this.config.numberOfFutureGames);
+      .slice(0, this.config.numberOfFutureGames)
+      // Add custom fields for display
+      .map((event) => {
+        // Start time fields
+        let hours = new Date(event["startTime"]).getHours();
+        if (hours >= 12) {
+          event["startPeriod"] = "PM";
+        } else {
+          event["startPeriod"] = "AM";
+        }
+        if (!this.config.use24HourTime) {
+          hours = hours % 12;
+        }
+        event["startHour"] = hours;
+        // Header fields
+        return event;
+      });
 
     // Credit: https://stackoverflow.com/a/37844673/2694643
     var groupByDay = function (obj) {
