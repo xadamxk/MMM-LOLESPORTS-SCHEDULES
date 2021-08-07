@@ -6,7 +6,21 @@
   {% else %}
     {% for schedules in groupedSchedules %}
       {% for schedule in schedules %}
-        <!-- TODO: Day header if index is 0 -->
+        {% if loop.index0 === 0 %}
+          <tr class="row">
+            <td colspan="100%">
+              <span class="floatLeft">
+                <span class="bold">{{schedule.startDayOfWeek}}</span>
+                –
+                <span>{{schedule.startMonth}}</span>
+                <span>{{schedule.startDayOfMonth}}</span>
+              </span>
+              {% if config.showTournamentBlock %}
+                <span class="floatRight">{{schedule.blockName}}</span>
+              {% endif %}
+            </td>
+          </tr>
+        {% endif %}
         <tr class="row">
           <td class="sides">
             <div class="time">
@@ -16,14 +30,13 @@
                 {{ schedule["startHour"] }}
               {% endif %}
             </div>
-            <!-- TODO: Logic for config to show/hide -->
             {% if config.showPeriodLabel %}
               <div class="period">
                 {{ schedule["startPeriod"] }}
               </div>
             {% endif %}
           </td>
-          {% if config.hideTeamLabel == false %}
+          {% if config.showTeamLabel %}
             <td>
               {% if config.useTeamFullName %}
                 <div class="team1">{{ schedule.match.teams[0].name }}</div>
@@ -41,7 +54,7 @@
           <td>
             <img class="logo" src="{{ schedule.match.teams[1].image }}"/>
           </td>
-          {% if config.hideTeamLabel == false %}
+          {% if config.showTeamLabel %}
             <td>
               {% if config.useTeamFullName %}
                 <div class="team2">{{ schedule.match.teams[1].name }}</div>
@@ -50,13 +63,15 @@
               {% endif %}
             </td>
           {% endif %}
-          <td class="sides">
-            <div class="leagueInfo">{{ schedule.league.name }}</div>
-            <div class="leagueInfo">
-              BEST OF
-              {{ schedule.match.strategy.count }}
-            </div>
-          </td>
+          {% if config.showRegionAndBestOf %}
+            <td class="sides">
+              <div class="leagueInfo">{{ schedule.league.name }}</div>
+              <div class="leagueInfo">
+                {{ 'BEST_OF' | translate }}
+                {{ schedule.match.strategy.count }}
+              </div>
+            </td>
+          {% endif %}
         </tr>
       {% endfor %}
     {% endfor %}

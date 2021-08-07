@@ -5,14 +5,16 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     // lang: config.language,
     apiKey: "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z",
     basePath: "https://esports-api.lolesports.com/persisted/gw",
-    leagueId: ["98767991299243165"], // NA LCS
     hl: "en-US",
     // Custom
+    leagueId: ["98767991299243165"], // NA LCS
     numberOfFutureGames: 5,
-    showPeriodLabel: true,
     use24HourTime: false,
-    useTeamFullName: true,
-    hideTeamLabel: false
+    useTeamFullName: false,
+    showPeriodLabel: true,
+    showTeamLabel: true,
+    showRegionAndBestOf: true,
+    showTournamentBlock: false
   },
 
   // Module properties.
@@ -72,6 +74,36 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     }
     const events = data["data"]["schedule"]["events"];
 
+    // Date helpers
+    const getMidnight = (day) => {
+      const date = new Date(day);
+      date.setMilliseconds(999);
+      date.setSeconds(59);
+      date.setMinutes(59);
+      date.setHours(23);
+      return date;
+    };
+
+    const oneDay = 1000 * 60 * 60 * 24;
+
+    const isToday = (date) => {
+      const today = new Date();
+      return (
+        // eslint-disable-next-line eqeqeq
+        date.getDate() == today.getDate() &&
+        // eslint-disable-next-line eqeqeq
+        date.getMonth() == today.getMonth() &&
+        // eslint-disable-next-line eqeqeq
+        date.getFullYear() == today.getFullYear()
+      );
+    };
+
+    const isTomorrow = (date) => {
+      const midnightTonight = getMidnight(new Date());
+      const midnightTomorrow = new Date(midnightTonight.getTime() + oneDay);
+      return date > midnightTonight && date < midnightTomorrow;
+    };
+
     const futureEvents = events
       .filter((event) => {
         return event["startTime"] > new Date().toISOString();
@@ -80,7 +112,8 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
       // Add custom fields for display
       .map((event) => {
         // Start time fields
-        let hours = new Date(event["startTime"]).getHours();
+        const startTimeDate = new Date(event["startTime"]);
+        let hours = startTimeDate.getHours();
         if (hours >= 12) {
           event["startPeriod"] = "PM";
         } else {
@@ -90,7 +123,83 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
           hours = hours % 12;
         }
         event["startHour"] = hours;
-        // Header fields
+        // Start date fields
+        if (isToday(startTimeDate)) {
+          event["startDayOfWeek"] = this.translate("TODAY");
+        } else if (isTomorrow(startTimeDate)) {
+          event["startDayOfWeek"] = this.translate("TOMORROW");
+        } else {
+          switch (startTimeDate.getDay()) {
+            case 0:
+              event["startDayOfWeek"] = this.translate("SUNDAY");
+              break;
+            case 1:
+              event["startDayOfWeek"] = this.translate("MONDAY");
+              break;
+            case 2:
+              event["startDayOfWeek"] = this.translate("TUESDAY");
+              break;
+            case 3:
+              event["startDayOfWeek"] = this.translate("WEDNESDAY");
+              break;
+            case 4:
+              event["startDayOfWeek"] = this.translate("THURSDAY");
+              break;
+            case 5:
+              event["startDayOfWeek"] = this.translate("FRIDAY");
+              break;
+            case 6:
+              event["startDayOfWeek"] = this.translate("SATURDAY");
+              break;
+            default:
+              event["startDayOfWeek"] = this.translate("SUNDAY");
+          }
+        }
+        // Start month fields
+        switch (startTimeDate.getMonth()) {
+          case 0:
+            event["startMonth"] = this.translate("JANUARY");
+            break;
+          case 1:
+            event["startMonth"] = this.translate("FEBRUARY");
+            break;
+          case 2:
+            event["startMonth"] = this.translate("MARCH");
+            break;
+          case 3:
+            event["startMonth"] = this.translate("APRIL");
+            break;
+          case 4:
+            event["startMonth"] = this.translate("MAY");
+            break;
+          case 5:
+            event["startMonth"] = this.translate("JUNE");
+            break;
+          case 6:
+            event["startMonth"] = this.translate("JULY");
+            break;
+          case 7:
+            event["startMonth"] = this.translate("AUGUST");
+            break;
+          case 8:
+            event["startMonth"] = this.translate("SEPTEMBER");
+            break;
+          case 9:
+            event["startMonth"] = this.translate("OCTOBER");
+            break;
+          case 10:
+            event["startMonth"] = this.translate("NOVEMBER");
+            break;
+          case 11:
+            event["startMonth"] = this.translate("DECEMBER");
+            break;
+          default:
+            event["startMonth"] = this.translate("JANUARY");
+            break;
+        }
+
+        event["startDayOfMonth"] = startTimeDate.getDate();
+
         return event;
       });
 

@@ -14,7 +14,7 @@ body {
 }
 
 .period {
-  padding-left: 4px;
+  padding-left: 1px;
   padding-top: 10px;
   font-size: 12px;
   font-weight: bold;
@@ -54,4 +54,16 @@ body {
 
 .sides {
   width: 20%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.floatRight {
+  float: right;
+}
+
+.floatLeft {
+  float: left;
 }
