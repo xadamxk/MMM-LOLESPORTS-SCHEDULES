@@ -72,27 +72,14 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
         return event["startTime"] > new Date().toISOString();
       })
       .slice(0, this.config.numberOfFutureGames);
-    console.log(futureEvents);
 
-    // Credit: https://stackoverflow.com/a/20631750/2694643
-    var groupByTimePeriod = function (obj, timestamp, period) {
+    // Credit: https://stackoverflow.com/a/37844673/2694643
+    var groupByDay = function (obj) {
       var objPeriod = {};
       var oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
       for (var i = 0; i < obj.length; i++) {
-        var d = new Date(obj[i]["startTime"]);
-        if (period == "day") {
-          d = Math.floor(d.getTime() / oneDay);
-        } else if (period == "week") {
-          d = Math.floor(d.getTime() / (oneDay * 7));
-        } else if (period == "month") {
-          d = (d.getFullYear() - 1970) * 12 + d.getMonth();
-        } else if (period == "year") {
-          d = d.getFullYear();
-        } else {
-          console.log(
-            "groupByTimePeriod: You have to set a period! day | week | month | year"
-          );
-        }
+        var d = new Date(obj[i]["startTime"]); // unique to schedule data
+        d = Math.floor(d.getTime() / oneDay);
         // define object key
         objPeriod[d] = objPeriod[d] || [];
         objPeriod[d].push(obj[i]);
@@ -100,7 +87,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
       return objPeriod;
     };
     // Games grouped by day
-    const groupedSchedulesMap = groupByTimePeriod(futureEvents, "date", "day");
+    const groupedSchedulesMap = groupByDay(futureEvents);
     const groupedSchedules = Object.values(groupedSchedulesMap).map(
       (values) => values
     );
