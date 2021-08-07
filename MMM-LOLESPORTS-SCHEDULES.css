@@ -67,3 +67,7 @@ body {
 .floatLeft {
   float: left;
 }
+
+.liveLabel {
+  color: #de2f2f
+}

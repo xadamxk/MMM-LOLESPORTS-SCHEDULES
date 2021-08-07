@@ -106,11 +106,20 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
 
     const futureEvents = events
       .filter((event) => {
-        return event["startTime"] > new Date().toISOString();
+        return (
+          event["startTime"] > new Date().toISOString() ||
+          event["state"] === "inProgress"
+        );
       })
       .slice(0, this.config.numberOfFutureGames)
       // Add custom fields for display
       .map((event) => {
+        // Is Live
+        if (event["state"] === "inProgress") {
+          event["isLive"] = true;
+        } else {
+          event["isLive"] = false;
+        }
         // Start time fields
         const startTimeDate = new Date(event["startTime"]);
         let hours = startTimeDate.getHours();

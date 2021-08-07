@@ -24,13 +24,17 @@
         <tr class="row">
           <td class="sides">
             <div class="time">
-              {% if config.use24HourTime %}
-                {{ schedule["startHour"] }}:00
+              {% if schedule["isLive"] %}
+                <div class="liveLabel">{{ 'LIVE' | translate }}</div>
               {% else %}
-                {{ schedule["startHour"] }}
+                {% if config.use24HourTime %}
+                  {{ schedule["startHour"] }}:00
+                {% else %}
+                  {{ schedule["startHour"] }}
+                {% endif %}
               {% endif %}
             </div>
-            {% if config.showPeriodLabel %}
+            {% if config.showPeriodLabel and schedule["isLive"] == false %}
               <div class="period">
                 {{ schedule["startPeriod"] }}
               </div>
