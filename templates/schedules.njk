@@ -1,0 +1,18 @@
+<table>
+  {% if groupedSchedules.length === 0 %}
+    <tr>
+      <td>{{ 'NO_SCHEDULES_FOUND' | translate }}</td>
+    </tr>
+  {% else %}
+    {% for schedules in groupedSchedules %}
+      {% for schedule in schedules %}
+        <!-- TODO: Day header if index is 0 -->
+        <tr class="row">
+          <td>
+            {{ schedule["state"] }}
+          </td>
+        </tr>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+</table>
