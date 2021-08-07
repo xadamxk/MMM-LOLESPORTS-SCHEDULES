@@ -21,7 +21,7 @@ config: {
   <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName_hideRegionAndBestOf.png?raw=true" title="Preview Minified Layout"  />
 	<pre><code>
 config: {
-	useTeamFullName: false,
+	showTeamLabel: false,
 	showRegionAndBestOf: false,
 }
 	</code></pre>
