@@ -221,7 +221,6 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     const groupedSchedules = Object.values(groupedSchedulesMap).map(
       (values) => values
     );
-    console.log(groupedSchedules);
     this.groupedSchedules = groupedSchedules;
     this.updateDom(500);
   }
