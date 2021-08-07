@@ -2,9 +2,43 @@
 An Esports schedule module for a provided League of Legends tournament id.
 Module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
-## Preview
+## Previews with Configuration Samples
+#### Default
 <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default.png?raw=true" title="Default Configuration Preview"  />
 
+<details> 
+  <summary>Hide Team Label:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName.png?raw=true" title="Preview Hide Team Label"  />
+	<pre><code>
+config: {
+	showTeamLabel: false	
+}
+	</code></pre>
+</details>
+
+<details> 
+  <summary>Minified Layout:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName_hideRegionAndBestOf.png?raw=true" title="Preview Minified Layout"  />
+	<pre><code>
+config: {
+	useTeamFullName: false,
+	showRegionAndBestOf: false,
+}
+	</code></pre>
+</details>
+
+<details> 
+  <summary>Full Layout:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hidePeriodLabel_use24hour_useFullTeamName_showTournamentBlock.png?raw=true" title="Preview Full Layout"  />
+	<pre><code>
+config: {
+	showPeriodLabel: false,
+	use24HourTime: true,
+	useTeamFullName: true,
+	showTournamentBlock: true
+}
+	</code></pre>
+</details>
 
 ## Installation
 In your terminal, go to your MagicMirror's Module folder:
