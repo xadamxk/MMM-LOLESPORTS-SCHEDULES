@@ -49,6 +49,7 @@ modules: [
 League Ids are obtained by navigating to `https://lolesports.com/schedule`, opening dev tools, selecting a league filter, and finding the league id in the network panel.
 
 | **League** | **League Id** |
+| --- | --- |
 | LCS | `98767991299243165` |
 | LCS Academy | `99332500638116286` |
 | LEC | `98767991302996019` |
