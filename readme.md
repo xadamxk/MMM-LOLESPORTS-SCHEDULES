@@ -4,7 +4,7 @@ Module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
 ## Previews with Configuration Samples
 #### Default
-<img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default.png?raw=true" title="Default Configuration Preview"  />
+<img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default_live.png?raw=true" title="Default Configuration Preview"  />
 
 <details> 
   <summary>Hide Team Label:</summary>
@@ -48,7 +48,7 @@ cd ~/MagicMirror/modules
 
 Clone this repository:
 ````
-git clone https://github.com:xadamxk/MMM-LOLESPORTS-SCHEDULES.git
+git clone https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES.git
 ````
 
 ## Configuration
