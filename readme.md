@@ -84,6 +84,7 @@ League Ids are obtained by navigating to `https://lolesports.com/schedule`, open
 
 | **League** | **League Id** |
 | --- | --- |
+| Worlds | `98767975604431411` |
 | LCS | `98767991299243165` |
 | LCS Academy | `99332500638116286` |
 | LEC | `98767991302996019` |
