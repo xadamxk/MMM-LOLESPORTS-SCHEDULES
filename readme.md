@@ -94,6 +94,6 @@ League Ids are obtained by navigating to `https://lolesports.com/schedule`, open
 | CBLOL | `98767991332355509` |
 | LLA | `101382741235120470` |
 | LCO | `105709090213554609` |
-| LJL | `98767991349978712` |
 | LCL | `98767991355908944` |
+| LJL | `98767991349978712` |
 
