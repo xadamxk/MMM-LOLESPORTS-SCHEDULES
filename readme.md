@@ -2,6 +2,8 @@
 An Esports schedule module for a provided League of Legends tournament id.
 Module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
+Also refer to <a href="https://github.com/xadamxk/MMM-LOLESPORTS-STANDINGS">MMM-LOLESPORTS-STANDINGS</a> for league standings.
+
 ## Previews with Configuration Samples
 #### Default
 <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default_live.png?raw=true" title="Default Configuration Preview"  />
