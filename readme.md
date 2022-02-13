@@ -11,8 +11,8 @@ Other league related modules:
 <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/default_live.png?raw=true" title="Default Configuration Preview"  />
 
 <details> 
-  <summary>Hide Team Label:</summary>
-  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName.png?raw=true" title="Preview Hide Team Label"  />
+  <summary>Hide Team Label Format:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName.png?raw=true" title="Preview Hide Team Label Format"  />
 	<pre><code>
 config: {
 	showTeamLabel: false	
@@ -21,8 +21,8 @@ config: {
 </details>
 
 <details> 
-  <summary>Minified Layout:</summary>
-  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName_hideRegionAndBestOf.png?raw=true" title="Preview Minified Layout"  />
+  <summary>Minified Format:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hideFullName_hideRegionAndBestOf.png?raw=true" title="Preview Minified Format"  />
 	<pre><code>
 config: {
 	showTeamLabel: false,
@@ -32,8 +32,8 @@ config: {
 </details>
 
 <details> 
-  <summary>Full Layout:</summary>
-  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hidePeriodLabel_use24hour_useFullTeamName_showTournamentBlock.png?raw=true" title="Preview Full Layout"  />
+  <summary>Full Format:</summary>
+  <img src="https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES/blob/main/screenshots/hidePeriodLabel_use24hour_useFullTeamName_showTournamentBlock.png?raw=true" title="Preview Full Format"  />
 	<pre><code>
 config: {
 	showPeriodLabel: false,
