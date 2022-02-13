@@ -52,7 +52,13 @@ cd ~/MagicMirror/modules
 
 Clone this repository:
 ````
-git clone https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES.git
+SSH: git clone git@github.com:xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD.git
+HTTPS: git clone https://github.com/xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD.git
+````
+
+Install/Update Dependencies:
+````
+npm install
 ````
 
 ## Configuration
@@ -61,7 +67,7 @@ Add `MMM-LOLESPORTS-SCHEDULE` module to the `modules` array in the `config/confi
 modules: [
 	{
 		module: "MMM-LOLESPORTS-SCHEDULES",
-		position: "middle_center",
+		position: "bottom_left",
 		config: {}
 	}
 ]
