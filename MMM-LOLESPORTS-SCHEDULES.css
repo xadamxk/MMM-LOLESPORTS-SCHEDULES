@@ -9,16 +9,14 @@
 .lolesportSchedulesTime {
   font-size: 36px;
   font-weight: bold;
-  width: 30px;
-  float: left;
 }
 
 .lolesportSchedulesPeriod {
-  padding-left: 1px;
   padding-top: 10px;
   font-size: 12px;
   font-weight: bold;
   text-align: left;
+  display: inline-block;
 }
 
 .lolesportSchedulesTeam1 {

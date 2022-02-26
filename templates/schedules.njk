@@ -28,17 +28,17 @@
                 <div class="lolesportSchedulesLiveLabel">{{ 'LIVE' | translate }}</div>
               {% else %}
                 {% if config.use24HourTime %}
-                  {{ schedule["startHour"] }}:00
+                  <span>{{ schedule["startHour"] }}:00</span>
                 {% else %}
-                  {{ schedule["startHour"] }}
+                  <span>{{ schedule["startHour"] }}</span>
+                {% endif %}
+                {% if config.showPeriodLabel %}
+                  <div class="lolesportSchedulesPeriod">
+                    {{ schedule["startPeriod"] }}
+                  </div>
                 {% endif %}
               {% endif %}
             </div>
-            {% if config.showPeriodLabel and schedule["isLive"] == false %}
-              <div class="lolesportSchedulesPeriod">
-                {{ schedule["startPeriod"] }}
-              </div>
-            {% endif %}
           </td>
           {% if config.showTeamLabel %}
             <td>
