@@ -1,4 +1,4 @@
-<table class="leagueTable">
+<table class="lolesportSchedulesLeagueTable">
   {% if groupedSchedules.length === 0 %}
     <tr>
       <td>{{ 'NO_SCHEDULES_FOUND' | translate }}</td>
@@ -7,25 +7,25 @@
     {% for schedules in groupedSchedules %}
       {% for schedule in schedules %}
         {% if loop.index0 === 0 %}
-          <tr class="leagueRow">
+          <tr class="lolesportSchedulesLeagueRow">
             <td colspan="100%">
-              <span class="floatLeft">
-                <span class="bold">{{schedule.startDayOfWeek}}</span>
+              <span class="lolesportSchedulesFloatLeft">
+                <span class="lolesportSchedulesBold">{{schedule.startDayOfWeek}}</span>
                 –
                 <span>{{schedule.startMonth}}</span>
                 <span>{{schedule.startDayOfMonth}}</span>
               </span>
               {% if config.showTournamentBlock %}
-                <span class="floatRight">{{schedule.blockName}}</span>
+                <span class="lolesportSchedulesFloatRight">{{schedule.blockName}}</span>
               {% endif %}
             </td>
           </tr>
         {% endif %}
-        <tr class="leagueRow">
-          <td class="sides">
-            <div class="time">
+        <tr class="lolesportSchedulesLeagueRow">
+          <td class="lolesportSchedulesSides">
+            <div class="lolesportSchedulesTime">
               {% if schedule["isLive"] %}
-                <div class="liveLabel">{{ 'LIVE' | translate }}</div>
+                <div class="lolesportSchedulesLiveLabel">{{ 'LIVE' | translate }}</div>
               {% else %}
                 {% if config.use24HourTime %}
                   {{ schedule["startHour"] }}:00
@@ -35,7 +35,7 @@
               {% endif %}
             </div>
             {% if config.showPeriodLabel and schedule["isLive"] == false %}
-              <div class="period">
+              <div class="lolesportSchedulesPeriod">
                 {{ schedule["startPeriod"] }}
               </div>
             {% endif %}
@@ -43,34 +43,34 @@
           {% if config.showTeamLabel %}
             <td>
               {% if config.useTeamFullName %}
-                <div class="team1">{{ schedule.match.teams[0].name }}</div>
+                <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].name }}</div>
               {% else %}
-                <div class="team1">{{ schedule.match.teams[0].code }}</div>
+                <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].code }}</div>
               {% endif %}
             </td>
           {% endif %}
           <td>
-            <img class="logo" src="{{ schedule.match.teams[0].image }}"/>
+            <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[0].image }}"/>
           </td>
           <td>
-            <div class="vs">VS</div>
+            <div class="lolesportSchedulesVs">VS</div>
           </td>
           <td>
-            <img class="logo" src="{{ schedule.match.teams[1].image }}"/>
+            <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[1].image }}"/>
           </td>
           {% if config.showTeamLabel %}
             <td>
               {% if config.useTeamFullName %}
-                <div class="team2">{{ schedule.match.teams[1].name }}</div>
+                <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].name }}</div>
               {% else %}
-                <div class="team2">{{ schedule.match.teams[1].code }}</div>
+                <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].code }}</div>
               {% endif %}
             </td>
           {% endif %}
           {% if config.showRegionAndBestOf %}
-            <td class="sides">
-              <div class="leagueInfo">{{ schedule.league.name }}</div>
-              <div class="leagueInfo">
+            <td class="lolesportSchedulesSides">
+              <div class="lolesportSchedulesLeagueInfo">{{ schedule.league.name }}</div>
+              <div class="lolesportSchedulesLeagueInfo">
                 {{ 'BEST_OF' | translate }}
                 {{ schedule.match.strategy.count }}
               </div>

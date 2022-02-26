@@ -1,19 +1,19 @@
-.leagueTable {
+.lolesportSchedulesLeagueTable {
   color: white
 }
 
-.leagueRow {
+.lolesportSchedulesLeagueRow {
   height: 36px;
 }
 
-.time {
+.lolesportSchedulesTime {
   font-size: 36px;
   font-weight: bold;
   width: 30px;
   float: left;
 }
 
-.period {
+.lolesportSchedulesPeriod {
   padding-left: 1px;
   padding-top: 10px;
   font-size: 12px;
@@ -21,23 +21,23 @@
   text-align: left;
 }
 
-.team1 {
+.lolesportSchedulesTeam1 {
   text-align: right;
   font-size: 28px;
 }
 
-.team2 {
+.lolesportSchedulesTeam2 {
   text-align: left;
   font-size: 28px;
 }
 
-.logo {
+.lolesportSchedulesLogo {
   margin-top: 5px;
   height: 50px;
   width: 50px;
 }
 
-.vs {
+.lolesportSchedulesVs {
   align-items: center;
   justify-content: center;
   color: #8fa3b0;
@@ -45,29 +45,29 @@
   font-weight: bold;
 }
 
-.leagueInfo {
+.lolesportSchedulesLeagueInfo {
   color: #8fa3b0;
   font-size: 14px;
   font-weight: bold;
   text-align: right;
 }
 
-.sides {
+.lolesportSchedulesSides {
   width: 20%;
 }
 
-.bold {
+.lolesportSchedulesBold {
   font-weight: bold;
 }
 
-.floatRight {
+.lolesportSchedulesFloatRight {
   float: right;
 }
 
-.floatLeft {
+.lolesportSchedulesFloatLeft {
   float: left;
 }
 
-.liveLabel {
+.lolesportSchedulesLiveLabel {
   color: #de2f2f
 }
