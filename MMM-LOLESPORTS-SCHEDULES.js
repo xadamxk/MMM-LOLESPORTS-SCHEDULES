@@ -212,18 +212,22 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
         return event;
       });
 
-    // Credit: https://stackoverflow.com/a/37844673/2694643
-    var groupByDay = function (obj) {
-      var objPeriod = {};
-      var oneDay = 24 * 60 * 60 * 1000; // hours * minutes * seconds * milliseconds
-      for (var i = 0; i < obj.length; i++) {
-        var d = new Date(obj[i]["startTime"]); // unique to schedule data
-        d = Math.floor(d.getTime() / oneDay);
-        // define object key
-        objPeriod[d] = objPeriod[d] || [];
-        objPeriod[d].push(obj[i]);
-      }
-      return objPeriod;
+    // Credit: https://stackoverflow.com/a/46802505
+    var groupByDay = function (arr) {
+      return arr.reduce((groups, entry) => {
+        if (!entry) {
+          return groups;
+        } else if (!entry.hasOwnProperty("startTime")) {
+          return groups;
+        } else {
+          const localDate = new Date(entry["startTime"]).toLocaleDateString();
+          if (!groups[localDate]) {
+            groups[localDate] = [];
+          }
+          groups[localDate].push(entry);
+        }
+        return groups;
+      }, {});
     };
     // Games grouped by day
     const groupedSchedulesMap = groupByDay(futureEvents);
