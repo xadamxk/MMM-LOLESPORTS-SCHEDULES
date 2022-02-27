@@ -6,77 +6,79 @@
   {% else %}
     {% for schedules in groupedSchedules %}
       {% for schedule in schedules %}
-        {% if loop.index0 === 0 %}
+        {% if schedule.type === 'match' %}
+          {% if loop.index0 === 0 %}
+            <tr class="lolesportSchedulesLeagueRow">
+              <td colspan="100%">
+                <span class="lolesportSchedulesFloatLeft">
+                  <span class="lolesportSchedulesBold">{{schedule.startDayOfWeek}}</span>
+                  –
+                  <span>{{schedule.startMonth}}</span>
+                  <span>{{schedule.startDayOfMonth}}</span>
+                </span>
+                {% if config.showTournamentBlock %}
+                  <span class="lolesportSchedulesFloatRight">{{schedule.blockName}}</span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endif %}
           <tr class="lolesportSchedulesLeagueRow">
-            <td colspan="100%">
-              <span class="lolesportSchedulesFloatLeft">
-                <span class="lolesportSchedulesBold">{{schedule.startDayOfWeek}}</span>
-                –
-                <span>{{schedule.startMonth}}</span>
-                <span>{{schedule.startDayOfMonth}}</span>
-              </span>
-              {% if config.showTournamentBlock %}
-                <span class="lolesportSchedulesFloatRight">{{schedule.blockName}}</span>
-              {% endif %}
-            </td>
-          </tr>
-        {% endif %}
-        <tr class="lolesportSchedulesLeagueRow">
-          <td class="lolesportSchedulesSides">
-            <div class="lolesportSchedulesTime">
-              {% if schedule["isLive"] %}
-                <div class="lolesportSchedulesLiveLabel">{{ 'LIVE' | translate }}</div>
-              {% else %}
-                {% if config.use24HourTime %}
-                  <span>{{ schedule["startHour"] }}:00</span>
-                {% else %}
-                  <span>{{ schedule["startHour"] }}</span>
-                {% endif %}
-                {% if config.showPeriodLabel %}
-                  <div class="lolesportSchedulesPeriod">
-                    {{ schedule["startPeriod"] }}
-                  </div>
-                {% endif %}
-              {% endif %}
-            </div>
-          </td>
-          {% if config.showTeamLabel %}
-            <td>
-              {% if config.useTeamFullName %}
-                <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].name }}</div>
-              {% else %}
-                <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].code }}</div>
-              {% endif %}
-            </td>
-          {% endif %}
-          <td>
-            <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[0].image }}"/>
-          </td>
-          <td>
-            <div class="lolesportSchedulesVs">VS</div>
-          </td>
-          <td>
-            <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[1].image }}"/>
-          </td>
-          {% if config.showTeamLabel %}
-            <td>
-              {% if config.useTeamFullName %}
-                <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].name }}</div>
-              {% else %}
-                <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].code }}</div>
-              {% endif %}
-            </td>
-          {% endif %}
-          {% if config.showRegionAndBestOf %}
             <td class="lolesportSchedulesSides">
-              <div class="lolesportSchedulesLeagueInfo">{{ schedule.league.name }}</div>
-              <div class="lolesportSchedulesLeagueInfo">
-                {{ 'BEST_OF' | translate }}
-                {{ schedule.match.strategy.count }}
+              <div class="lolesportSchedulesTime">
+                {% if schedule["isLive"] %}
+                  <div class="lolesportSchedulesLiveLabel">{{ 'LIVE' | translate }}</div>
+                {% else %}
+                  {% if config.use24HourTime %}
+                    <span>{{ schedule["startHour"] }}:00</span>
+                  {% else %}
+                    <span>{{ schedule["startHour"] }}</span>
+                  {% endif %}
+                  {% if config.showPeriodLabel %}
+                    <div class="lolesportSchedulesPeriod">
+                      {{ schedule["startPeriod"] }}
+                    </div>
+                  {% endif %}
+                {% endif %}
               </div>
             </td>
-          {% endif %}
-        </tr>
+            {% if config.showTeamLabel %}
+              <td>
+                {% if config.useTeamFullName %}
+                  <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].name }}</div>
+                {% else %}
+                  <div class="lolesportSchedulesTeam1">{{ schedule.match.teams[0].code }}</div>
+                {% endif %}
+              </td>
+            {% endif %}
+            <td>
+              <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[0].image }}"/>
+            </td>
+            <td>
+              <div class="lolesportSchedulesVs">VS</div>
+            </td>
+            <td>
+              <img class="lolesportSchedulesLogo" src="{{ schedule.match.teams[1].image }}"/>
+            </td>
+            {% if config.showTeamLabel %}
+              <td>
+                {% if config.useTeamFullName %}
+                  <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].name }}</div>
+                {% else %}
+                  <div class="lolesportSchedulesTeam2">{{ schedule.match.teams[1].code }}</div>
+                {% endif %}
+              </td>
+            {% endif %}
+            {% if config.showRegionAndBestOf %}
+              <td class="lolesportSchedulesSides">
+                <div class="lolesportSchedulesLeagueInfo">{{ schedule.league.name }}</div>
+                <div class="lolesportSchedulesLeagueInfo">
+                  {{ 'BEST_OF' | translate }}
+                  {{ schedule.match.strategy.count }}
+                </div>
+              </td>
+            {% endif %}
+          </tr>
+        {% endif %}
       {% endfor %}
     {% endfor %}
   {% endif %}
