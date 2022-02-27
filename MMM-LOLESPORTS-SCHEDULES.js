@@ -215,9 +215,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     // Credit: https://stackoverflow.com/a/46802505
     var groupByDay = function (arr) {
       return arr.reduce((groups, entry) => {
-        if (!entry) {
-          return groups;
-        } else if (!entry.hasOwnProperty("startTime")) {
+        if (!entry || !entry.hasOwnProperty("startTime")) {
           return groups;
         } else {
           const localDate = new Date(entry["startTime"]).toLocaleDateString();
@@ -231,9 +229,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     };
     // Games grouped by day
     const groupedSchedulesMap = groupByDay(futureEvents);
-    const groupedSchedules = Object.values(groupedSchedulesMap).map(
-      (values) => values
-    );
+    const groupedSchedules = Object.values(groupedSchedulesMap);
     this.groupedSchedules = groupedSchedules;
     this.updateDom(500);
   }
