@@ -52,8 +52,8 @@ cd ~/MagicMirror/modules
 
 Clone this repository:
 ````
-SSH: git clone git@github.com:xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD.git
-HTTPS: git clone https://github.com/xadamxk/MMM-CHAMPIONSQUEUE-LEADERBOARD.git
+SSH: git clone git@github.com:xadamxk/MMM-LOLESPORTS-SCHEDULES.git
+HTTPS: git clone https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES.git
 ````
 
 Install/Update Dependencies:
