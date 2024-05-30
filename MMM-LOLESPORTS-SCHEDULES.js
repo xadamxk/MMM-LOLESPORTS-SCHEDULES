@@ -33,7 +33,8 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
   },
   getTranslations() {
     return {
-      en: "translations/en.json"
+      en: "translations/en.json",
+      de: "translations/de.json",
     };
   },
   getStyles: function () {
