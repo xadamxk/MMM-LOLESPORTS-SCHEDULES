@@ -11,10 +11,11 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     numberOfFutureGames: 5,
     use24HourTime: false,
     useTeamFullName: false,
+    useInternationalDateFormat: false, // false = month day (US), true = day month (International)
     showPeriodLabel: true,
     showTeamLabel: true,
     showRegionAndBestOf: true,
-    showTournamentBlock: false
+    showTournamentBlock: false,
   },
 
   // Module properties.
@@ -46,7 +47,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
   getTemplateData() {
     return {
       groupedSchedules: this.groupedSchedules,
-      config: this.config
+      config: this.config,
     };
   },
   // Fetch schedule for provided league ids
@@ -55,7 +56,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
       apiKey: this.config.apiKey,
       basePath: this.config.basePath,
       leagueId: this.config.leagueId,
-      hl: this.config.hl
+      hl: this.config.hl,
     });
   },
 
@@ -233,5 +234,5 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     const groupedSchedules = Object.values(groupedSchedulesMap);
     this.groupedSchedules = groupedSchedules;
     this.updateDom(500);
-  }
+  },
 });

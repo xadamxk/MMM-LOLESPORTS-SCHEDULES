@@ -84,6 +84,7 @@ modules: [
 | `numberOfFutureGames` | integer | `5` | Number of future games to display. |
 | `use24HourTime` | boolean | false | Use 24 hour format (hh:mm) rather than 12 hour format (hh PERIOD) |
 | `useTeamFullName` | boolean | false | Show teams' full name rather than teams' code. |
+| `useInternationalDateFormat` | boolean | false | Show date format as international format (Day. Month) - False for US format (Month Day) |
 | `showPeriodLabel` | boolean | true | Show period (AM/PM) after time. |
 | `showTeamLabel` | boolean | true | Show team label (name/code). Use `false` for slim component. |
 | `showRegionAndBestOf` | boolean | true | Show region and best of format for games. |

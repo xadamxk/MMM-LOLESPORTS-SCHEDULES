@@ -13,8 +13,13 @@
                 <span class="lolesportSchedulesFloatLeft">
                   <span class="lolesportSchedulesBold">{{schedule.startDayOfWeek}}</span>
                   –
-                  <span>{{schedule.startMonth}}</span>
-                  <span>{{schedule.startDayOfMonth}}</span>
+                  {% if config.useInternationalDateFormat %}
+                    <span>{{schedule.startDayOfMonth}}</span>
+                    <span>{{schedule.startMonth}}</span>
+                  {% else %}
+                    <span>{{schedule.startMonth}}</span>
+                    <span>{{schedule.startDayOfMonth}}</span>
+                  {% endif %}
                 </span>
                 {% if config.showTournamentBlock %}
                   <span class="lolesportSchedulesFloatRight">{{schedule.blockName}}</span>
