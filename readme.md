@@ -123,5 +123,5 @@ League Ids are obtained by navigating to `https://lolesports.com/schedule`, open
 | TCL | `98767991343597634` |
 | Ultraliga | `105266088231437431` |
 | VCS | `107213827295848783` |
-| Worlds | N/A |
+| Worlds | `98767975604431411` |
 
