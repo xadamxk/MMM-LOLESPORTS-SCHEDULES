@@ -79,7 +79,7 @@ modules: [
 | `updateInterval` | integer | 60 | Number of minutes to poll api for updates. |
 | `apiKey` | string | '0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z' | Api key used to query esports API - all users' api key is the default key. |
 | `basePath` | string | 'https://esports-api.lolesports.com/persisted/gw' | Base bath used to query the esports api. |
-| `leagueId` | array | ["98767991299243165"] | Array of league ids to get esport standings. Currently the API only supports a single league id. If no id is provided, then all region games will be provided. Refer to league table below for ids of other leagues. Defaults to NA LCS.|
+| `leagueId` | array | ["113475149040947852"] | Array of league ids to get esport standings. Currently the API only supports a single league id. If no id is provided, then all region games will be provided. Refer to league table below for ids of other leagues. Defaults to LTA.|
 | `hl` | string | 'en-US' | Host language/ locale to use when requesting esports data. |
 | `numberOfFutureGames` | integer | `5` | Number of future games to display. |
 | `use24HourTime` | boolean | false | Use 24 hour format (hh:mm) rather than 12 hour format (hh PERIOD) |
