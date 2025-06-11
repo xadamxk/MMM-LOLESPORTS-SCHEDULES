@@ -91,7 +91,7 @@ modules: [
 | `showTournamentBlock` | boolean | false | Show tournament block (ie. Playoffs - Round 1) after start date.|
 
 ### League Ids
-League Ids are obtained by navigating to `https://lolesports.com/schedule`, opening dev tools, selecting a league filter, and finding the league id in the network panel.
+League Ids are obtained by navigating to `https://lolesports.com/en-US/leagues`, opening dev tools, selecting a league filter, and finding the league id in the network panel in the `/api/gql` request.
 
 | **League** | **League Id** |
 | --- | --- |
@@ -106,8 +106,6 @@ League Ids are obtained by navigating to `https://lolesports.com/schedule`, open
 | LCK | `98767991310872058` |
 | LCL | `98767991355908944` |
 | LCO | `105709090213554609` |
-| LCS Challengers | `109511549831443335` |
-| LCS | `98767991299243165` |
 | LEC | `98767991302996019` |
 | LFL | `105266103462388553` |
 | Liga Portuguesa | `105266101075764040` |
@@ -116,6 +114,10 @@ League Ids are obtained by navigating to `https://lolesports.com/schedule`, open
 | LLA | `101382741235120470` |
 | LOL Italian Tournament | `105266094998946936` |
 | LPL | `98767991314006698` |
+| LTA North | `113470291645289904` |
+| LTA | `113475149040947852` |
+| LTA South | `113475181634818701` |
+| NACL | `109511549831443335` |
 | NLC | `105266098308571975` |
 | PCS | `104366947889790212` |
 | Prime League | `105266091639104326` |
