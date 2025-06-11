@@ -7,7 +7,7 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     basePath: "https://esports-api.lolesports.com/persisted/gw",
     hl: "en-US",
     // Custom
-    leagueId: ["98767991299243165"], // NA LCS
+    leagueId: ["113475149040947852"], // LTA
     numberOfFutureGames: 5,
     use24HourTime: false,
     useTeamFullName: false,
