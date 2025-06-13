@@ -115,7 +115,7 @@ League Ids are obtained by navigating to `https://lolesports.com/en-US/leagues`,
 | LOL Italian Tournament | `105266094998946936` |
 | LPL | `98767991314006698` |
 | LTA North | `113470291645289904` |
-| LTA | `113475149040947852` |
+| LTA - cross-conference playoffs only, use north/south instead | `113475149040947852` |
 | LTA South | `113475181634818701` |
 | NACL | `109511549831443335` |
 | NLC | `105266098308571975` |
