@@ -1,5 +1,5 @@
 # MMM-LOLESPORTS-SCHEDULES
-An Esports schedule module for a provided League of Legends tournament id.
+An Esports schedule module for a provided League of Legends league id.
 Module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
 Other league related modules:
