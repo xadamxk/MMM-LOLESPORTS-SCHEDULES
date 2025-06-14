@@ -91,39 +91,51 @@ modules: [
 | `showTournamentBlock` | boolean | false | Show tournament block (ie. Playoffs - Round 1) after start date.|
 
 ### League Ids
-League Ids are obtained by navigating to `https://lolesports.com/en-US/leagues`, opening dev tools, selecting a league filter, and finding the league id in the network panel in the `/api/gql` request.
+League Ids can be obtained in two ways:
+1. With the following CURL: `curl --location 'https://esports-api.lolesports.com/persisted/gw/getLeagues?hl=en-US' \
+--header 'x-api-key: 0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z'`
+2. Navigate to `https://lolesports.com/en-US/leagues`, opening dev tools, selecting a league filter, and finding the league id in the network panel in the `/api/gql` request.
 
-| **League** | **League Id** |
-| --- | --- |
-| Arabian League | `109545772895506419` |
-| CBLOL Academy | `105549980953490846` |
-| CBLOL | `98767991332355509` |
-| EBL | `105266108767593290` |
-| Elite Series | `107407335299756365` |
-| Greek Legends League | `105266108767593290` |
-| Hitpoint Masters | `105266106309666619` |
-| LCK Challengers | `98767991335774713` |
-| LCK | `98767991310872058` |
-| LCL | `98767991355908944` |
-| LCO | `105709090213554609` |
-| LEC | `98767991302996019` |
-| LFL | `105266103462388553` |
-| Liga Portuguesa | `105266101075764040` |
-| LJL Challengers | `106827757669296909` |
-| LJL | `98767991349978712` |
-| LLA | `101382741235120470` |
-| LOL Italian Tournament | `105266094998946936` |
-| LPL | `98767991314006698` |
-| LTA North | `113470291645289904` |
-| LTA - cross-conference playoffs only, use north/south instead for regular season | `113475149040947852` |
-| LTA South | `113475181634818701` |
-| NACL | `109511549831443335` |
-| NLC | `105266098308571975` |
-| PCS | `104366947889790212` |
-| Prime League | `105266091639104326` |
-| Superliga | `105266074488398661` |
-| TCL | `98767991343597634` |
-| Ultraliga | `105266088231437431` |
-| VCS | `107213827295848783` |
-| Worlds | `98767975604431411` |
+| Name                      | League Id             |
+|---------------------------|-----------------------|
+| LTA North                 | `113470291645289904`  |
+| LTA Cross-Conference      | `113475149040947852`  |
+| LTA South                 | `113475181634818701`  |
+| LEC                       | `98767991302996019`   |
+| LCK                       | `98767991310872058`   |
+| LPL                       | `98767991314006698`   |
+| LCP                       | `113476371197627891`  |
+| NACL                      | `109511549831443335`  |
+| EMEA Masters              | `100695891328981122`  |
+| First Stand               | `113464388705111224`  |
+| MSI                       | `98767991325878492`   |
+| Worlds                    | `98767975604431411`   |
+| LJL                       | `98767991349978712`   |
+| TCL                       | `98767991343597634`   |
+| NLC                       | `105266098308571975`  |
+| La Ligue Française        | `105266103462388553`  |
+| Road of Legends           | `107407335299756365`  |
+| Liga Portuguesa           | `105266101075764040`  |
+| LoL Italian Tournament    | `105266094998946936`  |
+| Rift Legends              | `113673877956508505`  |
+| SuperLiga                 | `105266074488398661`  |
+| Prime League              | `105266091639104326`  |
+| Hitpoint Masters          | `105266106309666619`  |
+| Esports Balkan League     | `105266111679554379`  |
+| Hellenic Legends League   | `105266108767593290`  |
+| Arabian League            | `109545772895506419`  |
+| LCK Challengers           | `98767991335774713`   |
+| Circuito Desafiante       | `105549980953490846`  |
+| PCS                       | `104366947889790212`  |
+| LRN                       | `110371976858004491`  |
+| LRS                       | `110372322609949919`  |
+| TFT Esports               | `108001239847565215`  |
+| LLA                       | `101382741235120470`  |
+| LCO                       | `105709090213554609`  |
+| VCS                       | `107213827295848783`  |
+| Worlds Qualifying Series  | `110988878756156222`  |
+| King's Duel               | `111102022734849553`  |
+| LCS                       | `98767991299243165`   |
+| CBLOL                     | `98767991332355509`   |
+| LCL                       | `98767991355908944`   |
 
