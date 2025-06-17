@@ -57,6 +57,8 @@ HTTPS: git clone https://github.com/xadamxk/MMM-LOLESPORTS-SCHEDULES.git
 ````
 
 Install/Update Dependencies:
+* First, change directories into this project: `cd MMM-LOLESPORTS-SCHEDULES`
+* Then install dependencies with:
 ````
 npm install
 ````
