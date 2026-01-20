@@ -4,10 +4,10 @@ Module.register("MMM-LOLESPORTS-SCHEDULES", {
     updateInterval: 60, // minutes
     // lang: config.language,
     apiKey: "0TvQnueqKa5mxJntVWt0w4LpLfEkrV1Ta8rQBb9Z",
-    basePath: "https://esports-api.lolesports.com/persisted/gw",
+    basePath: "https://esports-api.lolesports.com",
     hl: "en-US",
     // Custom
-    leagueId: ["113470291645289904"], // LTA North
+    leagueId: ["98767991299243165"], // LCS
     numberOfFutureGames: 5,
     use24HourTime: false,
     useTeamFullName: false,

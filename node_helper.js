@@ -6,30 +6,50 @@
  */
 
 var NodeHelper = require("node_helper");
-var LolesportsApi = require("esm")(module)("lolesports-js-sdk");
-var defaultClient = LolesportsApi.ApiClient.instance;
-var api = new LolesportsApi.EventsApi();
+var https = require("https");
 
 module.exports = NodeHelper.create({
   // Override socketNotificationReceived method.
   socketNotificationReceived: function (notification, payload) {
     let self = this;
     if (notification === "MMM-LOLESPORTS-SCHEDULES-GET-SCHEDULE") {
-      defaultClient.basePath = payload["basePath"];
-      defaultClient.authentications["apiKeyAuth"]["apiKey"] = payload["apiKey"];
+      const basePath = payload["basePath"];
+      const apiKey = payload["apiKey"];
+      const leagueId = payload["leagueId"];
 
-      api.getSchedule(
-        LolesportsApi.Locale.enUS,
-        { leagueId: payload["leagueId"] },
-        function (error, data, response) {
-          if (error) {
-            console.error(error);
-          } else {
-            // console.log("API called successfully. Returned data: " + JSON.stringify(data));
-            self.sendNotificationTest(data);
+      // Construct the URL
+      const url = `${basePath}/persisted/gw/getSchedule?hl=en-US&leagueId=${leagueId}`;
+
+      https
+        .get(
+          url,
+          {
+            headers: {
+              "x-api-key": apiKey,
+            },
+          },
+          (response) => {
+            let data = "";
+
+            // A chunk of data has been received
+            response.on("data", (chunk) => {
+              data += chunk;
+            });
+
+            // The whole response has been received
+            response.on("end", () => {
+              try {
+                const jsonData = JSON.parse(data);
+                self.sendNotificationTest(jsonData);
+              } catch (error) {
+                console.error("Error parsing response:", error);
+              }
+            });
           }
-        }
-      );
+        )
+        .on("error", (error) => {
+          console.error("Error fetching schedule:", error);
+        });
     }
   },
   // Example function send notification test
